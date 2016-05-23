@@ -1,5 +1,7 @@
-FROM buildpack-deps:xenial
+FROM jenkinsci/jenkins
 MAINTAINER Frankie Robertson <frankie@robertson.name>
+
+USER root
 
 # Apertium
 RUN apt-get update && apt-get install -y \
@@ -9,12 +11,10 @@ RUN apt-get update && apt-get install -y \
   && apt-get update \
   && apt-get -f install -y apertium-all-dev
 
-
-# Jenkins
-RUN wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add \
-  && sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' \
-  && apt-get update \
-  && apt-get -f install -y jenkins
-
 # Python 3
 RUN apt-get -f install -y python3
+
+# Build essential
+RUN apt-get -f install -y build-essential automake
+
+USER jenkins
