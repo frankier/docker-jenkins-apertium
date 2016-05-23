@@ -13,6 +13,12 @@ RUN apt-get update && apt-get install -y \
 
 # Python 3
 RUN apt-get -f install -y python3
+RUN echo "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu trusty main" >> /etc/apt/sources.list.d/deadsnakes.list \
+  && echo "deb-src http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu trusty main" >> /etc/apt/sources.list.d/deadsnakes.list \
+  && (gpg --keyserver keyserver.ubuntu.com --recv-keys DB82666C || true) \
+  && gpg --export DB82666C | apt-key add - \
+  && apt-get update \
+  && apt-get -f install -y python3.5
 
 # Build essential
 RUN apt-get -f install -y build-essential automake
