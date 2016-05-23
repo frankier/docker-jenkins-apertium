@@ -1,4 +1,4 @@
-FROM jenkinsci/jenkins
+FROM jenkinsci/jenkins:latest
 MAINTAINER Frankie Robertson <frankie@robertson.name>
 
 USER root
