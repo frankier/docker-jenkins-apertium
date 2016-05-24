@@ -20,7 +20,8 @@ RUN echo "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu trusty main" >> 
   && apt-get update \
   && apt-get -f install -y python3.5
 
-# Build essential
-RUN apt-get -f install -y build-essential automake
+# Apertium build requirements
+RUN apt-get -f install -y subversion build-essential pkg-config gawk libxml2 \
+  libxml2-dev libxml2-utils xsltproc flex automake libtool libpcre3-dev
 
 USER jenkins
