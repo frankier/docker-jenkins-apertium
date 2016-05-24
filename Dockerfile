@@ -22,6 +22,7 @@ RUN echo "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu trusty main" >> 
 
 # Apertium build requirements
 RUN apt-get -f install -y subversion build-essential pkg-config gawk libxml2 \
-  libxml2-dev libxml2-utils xsltproc flex automake libtool libpcre3-dev zlib1g
+  libxml2-dev libxml2-utils xsltproc flex automake libtool libpcre3-dev \
+  zlib1g zlib1g-dev
 
 USER jenkins
