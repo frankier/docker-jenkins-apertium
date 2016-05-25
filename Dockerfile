@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
   && apt-get -f install -y apertium-all-dev
 
 # Python 3
+RUN apt-get -f install -y virtualenv python-virtualenv python3-virtualenv
 RUN apt-get -f install -y python3
 RUN echo "deb http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu trusty main" >> /etc/apt/sources.list.d/deadsnakes.list \
   && echo "deb-src http://ppa.launchpad.net/fkrull/deadsnakes/ubuntu trusty main" >> /etc/apt/sources.list.d/deadsnakes.list \
