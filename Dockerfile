@@ -26,4 +26,10 @@ RUN apt-get -f install -y subversion build-essential pkg-config gawk libxml2 \
   libxml2-dev libxml2-utils xsltproc flex automake libtool libpcre3-dev \
   zlib1g zlib1g-dev
 
+# Apertium-cleanstream
+RUN svn co https://svn.code.sf.net/p/apertium/svn/trunk/apertium-tools/apertium-cleanstream
+ && cd apertium-cleanstream
+ && make
+ && cp apertium-cleanstream /usr/local/bin
+
 USER jenkins
