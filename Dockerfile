@@ -33,6 +33,8 @@ RUN svn co https://svn.code.sf.net/p/apertium/svn/trunk/apertium-tools/apertium-
  && cp apertium-cleanstream /usr/local/bin
 
 # Building lxml takes ages so install it globally
-RUN python3.5 -m pip install lxml==3.6.1
+RUN wget https://bootstrap.pypa.io/get-pip.py \
+ && python3.5 get-pip.py \
+ && python3.5 -m pip install lxml==3.6.1
 
 USER jenkins
