@@ -27,21 +27,21 @@ RUN svn co https://svn.code.sf.net/p/apertium/svn/trunk/lttoolbox/ \
  && cd lttoolbox \
  && ./autogen.sh \
  && make \
- && make install
+ && make install \
  && ldconfig
 
 RUN svn co https://svn.code.sf.net/p/apertium/svn/trunk/apertium/ \
  && cd apertium \
  && ./autogen.sh \
  && make \
- && make install
+ && make install \
  && ldconfig
 
 RUN svn co https://svn.code.sf.net/p/apertium/svn/trunk/apertium-lex-tools/ \
  && cd apertium-lex-tools \
  && ./autogen.sh \
  && make \
- && make install
+ && make install \
  && ldconfig
 
 # Apertium-cleanstream
