@@ -3,6 +3,10 @@ MAINTAINER Frankie Robertson <frankie@robertson.name>
 
 USER root
 
+RUN apt-get update && apt-get install -y \
+    wget \
+    curl
+
 # Python 3
 RUN apt-get -f install -y virtualenv python-virtualenv python3-virtualenv
 RUN apt-get -f install -y python3
